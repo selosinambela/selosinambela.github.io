@@ -53,7 +53,7 @@ start index.html
 - **Portfolio**: [selosinambela.github.io](https://selosinambela.github.io)
 - **LinkedIn**: [Vaidon Shello Sinambela](https://www.linkedin.com/in/vaidon-shello-sinambela/)
 - **GitHub**: [@selosinambela](https://github.com/selosinambela)
-- **Instagram**: [@shello_sinambela](https://www.instagram.com/shello_sinambela/)
+- **Instagram**: [@selosinambela](https://www.instagram.com/selosinambela/)
 
 ---
 
