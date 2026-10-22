@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaidon Shello Sinambela — IT Developer & UI/UX Enthusiast</title>
+  <meta name="description"
+    content="Portofolio Vaidon Shello Sinambela, mahasiswa IT yang fokus pada Web Development, Data Science, dan UI/UX Design.">
+  <meta name="author" content="Vaidon Shello Sinambela">
+  <meta name="keywords" content="Web Developer, Data Science, UI/UX Design, IT Student, Portofolio">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Vaidon Shello Sinambela — IT Developer & UI/UX Enthusiast">
+  <meta property="og:description" content="Portofolio profesional: Web Development, Data Science, dan UI/UX Design.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/your-photo.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind (CDN, config extended with design tokens) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#F4F0E6',
+            ink: '#1C241E',
+            inksoft: '#2A342C',
+            accent: '#C1622E',
+            accentdark: '#A6511F',
+            sage: '#8A9179',
+            muted: '#6E6B60',
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-cream text-[#22221D] font-body antialiased overflow-x-hidden">
+
+  <!-- ============================= -->
+  <!-- Preloader                     -->
+  <!-- ============================= -->
+  <div id="preloader">
+    <div class="preloader-logo">
+      <span class="accent">&lt;</span>vaidon.dev<span class="accent">/&gt;</span>
+    </div>
+    <div class="preloader-bar-wrapper">
+      <div class="preloader-bar"></div>
+    </div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scrollProgress"></div>
+
+
+  <!-- ============================= -->
+  <!-- Header / Navigation Section   -->
+  <!-- ============================= -->
+  <header class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-black/10" id="top">
+    <div class="max-w-[1180px] mx-auto px-8 py-4 flex items-center justify-between">
+      <a href="#top" class="font-mono font-semibold text-[1.05rem]">
+        <span class="text-accent">&lt;</span>vaidon.dev<span class="text-accent">/&gt;</span>
+      </a>
+
+      <nav class="hidden md:flex gap-9 text-[0.92rem] font-medium" id="mainNav">
+        <a href="#top" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <a href="#contact"
+        class="magnetic-btn hidden md:inline-flex items-center gap-2 bg-accent hover:bg-accentdark text-white text-[0.88rem] font-semibold px-6 py-2.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/30">Hire
+        Me</a>
+
+      <button class="md:hidden flex flex-col gap-1.5" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="w-6 h-0.5 bg-[#22221D]"></span>
+        <span class="w-6 h-0.5 bg-[#22221D]"></span>
+        <span class="w-6 h-0.5 bg-[#22221D]"></span>
+      </button>
+    </div>
+
+    <!-- Mobile nav panel -->
+    <nav class="md:hidden hidden flex-col gap-5 px-8 border-t border-black/10 bg-cream" id="mobileNav">
+      <a href="#top" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================= -->
+    <!-- Hero Section                  -->
+    <!-- ============================= -->
+    <section class="pt-20 md:pt-28 pb-20 relative overflow-hidden" id="hero">
+      <!-- Decorative particles -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="particle w-2 h-2" style="left: 10%; animation-duration: 12s; animation-delay: 0s;"></div>
+        <div class="particle w-3 h-3" style="left: 25%; animation-duration: 18s; animation-delay: 2s;"></div>
+        <div class="particle w-1.5 h-1.5" style="left: 60%; animation-duration: 15s; animation-delay: 4s;"></div>
+        <div class="particle w-2 h-2" style="left: 80%; animation-duration: 20s; animation-delay: 1s;"></div>
+        <div class="particle w-1 h-1" style="left: 45%; animation-duration: 14s; animation-delay: 6s;"></div>
+      </div>
+
+      <div class="max-w-[1180px] mx-auto px-8 grid md:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
+
+        <div class="fade-in">
+          <p class="inline-flex items-center gap-2 font-mono text-[0.82rem] text-accent mb-5">
+            <span
+              class="w-[7px] h-[7px] rounded-full bg-accent shadow-[0_0_0_4px_rgba(193,98,46,0.18)] animate-pulse"></span>
+            const role = "<span id="typedRole">Software Developer</span><span class="typed-cursor"></span>";
+          </p>
+          <h1 class="font-display text-[clamp(2.6rem,5vw,4.2rem)] leading-[1.08] tracking-tight mb-6">
+            Vaidon Shello<br><span class="gradient-text">Sinambela</span>
+          </h1>
+          <p class="text-[1.08rem] text-muted max-w-[480px] mb-9 leading-relaxed">
+            Saya merancang dan membangun pengalaman digital yang bersih, fungsional, dan berbasis data — dari antarmuka
+            yang intuitif hingga sistem yang cerdas.
+          </p>
+
+          <div class="flex flex-wrap gap-4 mb-12">
+            <a href="#projects"
+              class="magnetic-btn group inline-flex items-center gap-2 bg-accent hover:bg-accentdark text-white font-semibold text-[0.95rem] px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/30">
+              Lihat Proyek <span class="transition-transform group-hover:translate-x-1">→</span>
+            </a>
+            <a href="#about"
+              class="magnetic-btn inline-flex items-center gap-2 border border-black/15 hover:border-[#22221D] font-semibold text-[0.95rem] px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5">
+              <span
+                class="w-[26px] h-[26px] rounded-full bg-[#22221D] text-cream flex items-center justify-center text-[0.6rem]">▶</span>
+              Kenali Saya
+            </a>
+          </div>
+
+          <div class="flex items-center gap-6 mb-10">
+            <div>
+              <span class="font-display font-bold text-[1.9rem] block" data-counter="10" data-suffix="+">0</span>
+              <span class="text-[0.78rem] text-muted leading-tight">Projects<br>Completed</span>
+            </div>
+            <div class="w-px h-10 bg-black/10"></div>
+            <div>
+              <span class="font-display font-bold text-[1.9rem] block" data-counter="3">0</span>
+              <span class="text-[0.78rem] text-muted leading-tight">Focus<br>Areas</span>
+            </div>
+            <div class="w-px h-10 bg-black/10"></div>
+            <div>
+              <span class="font-display font-bold text-[1.9rem] block">USU</span>
+              <span class="text-[0.78rem] text-muted leading-tight">Informatics<br>Engineering</span>
+            </div>
+          </div>
+
+          <!-- Social Links (Hero) -->
+          <div class="flex items-center gap-4">
+            <span class="text-[0.78rem] font-mono text-muted uppercase tracking-wide">Connect:</span>
+            <a href="https://github.com/selosinambela" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+              class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-[18px] h-[18px]">
+                <path
+                  d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55v-2.1c-3.16.69-3.83-1.36-3.83-1.36-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.24 3.31.95.1-.73.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55 4.5-1.5 7.76-5.76 7.76-10.78C23.25 5.48 18.27.5 12 .5Z" />
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/vaidonshellos" target="_blank" rel="noopener noreferrer"
+              aria-label="LinkedIn" class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-[18px] h-[18px]">
+                <path
+                  d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z" />
+              </svg>
+            </a>
+            <a href="https://instagram.com/selosinambela" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram" class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-[18px] h-[18px]">
+                <path
+                  d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0-2.16C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.56-.79.31-1.46.72-2.13 1.38A5.88 5.88 0 0 0 .63 3.14C.33 3.9.12 4.77.07 6.05.01 7.33 0 7.74 0 11s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.66.66 1.34 1.07 2.13 1.38.76.3 1.63.5 2.91.56C8.33 22.99 8.74 23 12 23s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.66 1.07-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84Zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero visual: terminal card -->
+        <div class="relative flex justify-center fade-in">
+          <div
+            class="hero-circle absolute w-[340px] h-[340px] md:w-[380px] md:h-[380px] rounded-full bg-accent/90 top-[10%] right-[6%] z-0 glow-accent">
+          </div>
+          <div class="relative z-10 bg-ink rounded-2xl w-full max-w-[420px] shadow-2xl overflow-hidden animate-float">
+            <div class="flex items-center gap-2 px-4 py-3.5 border-b border-cream/10">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#E4645C]"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#E4B855]"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#6FBF73]"></span>
+              <p class="font-mono text-[0.78rem] text-cream/60 ml-2">profile.json</p>
+            </div>
+            <pre class="font-mono text-[0.86rem] text-[#E4E1D6] p-6 leading-relaxed whitespace-pre-wrap"><code>{
+  <span class="text-[#6FBF73]">"name"</span>: <span class="text-[#E4B855]">"Vaidon Shello S."</span>,
+  <span class="text-[#6FBF73]">"role"</span>: <span class="text-[#E4B855]">"Full-Stack & AI Developer"</span>,
+  <span class="text-[#6FBF73]">"focus"</span>: [
+    <span class="text-[#E4B855]">"Web Development"</span>,
+    <span class="text-[#E4B855]">"Machine Learning"</span>,
+    <span class="text-[#E4B855]">"UI/UX Design"</span>
+  ],
+  <span class="text-[#6FBF73]">"status"</span>: <span class="text-[#E4B855]">"open_to_work"</span> <span class="text-[#6FBF73]">✓</span>
+}</code></pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- Services / What I Can Do      -->
+    <!-- ============================= -->
+    <section class="bg-ink text-cream py-24" id="services">
+      <div class="max-w-[1180px] mx-auto px-8">
+        <div class="grid md:grid-cols-2 gap-10 items-end mb-14">
+          <div class="fade-in">
+            <p class="font-mono text-[0.82rem] text-sage mb-4">// SERVICES</p>
+            <h2 class="font-display text-[clamp(2rem,3.4vw,2.7rem)] leading-tight">Apa yang Bisa<br>Saya Kerjakan</h2>
+          </div>
+          <p class="text-cream/65 max-w-[420px] fade-in">Dari eksplorasi data hingga antarmuka yang siap pakai, saya
+            membantu mengubah ide menjadi produk digital yang terstruktur dan mudah digunakan.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="service-card fade-in bg-inksoft border border-cream/10 hover:border-accent rounded-2xl p-7 transition-all duration-300">
+            <div class="service-icon bg-accent/10">🖥️</div>
+            <h3 class="text-[1.08rem] font-semibold mb-2.5">Web Development</h3>
+            <p class="text-[0.88rem] text-cream/60">Membangun website responsif dan performa tinggi menggunakan HTML,
+              CSS,
+              JavaScript, hingga framework modern.</p>
+          </div>
+          <div
+            class="service-card fade-in bg-inksoft border border-cream/10 hover:border-accent rounded-2xl p-7 transition-all duration-300">
+            <div class="service-icon bg-accent/10">📊</div>
+            <h3 class="text-[1.08rem] font-semibold mb-2.5">Data Science</h3>
+            <p class="text-[0.88rem] text-cream/60">Mengolah dan menganalisis data untuk menemukan pola, membangun model
+              prediktif, dan mendukung pengambilan keputusan.</p>
+          </div>
+          <div
+            class="service-card fade-in bg-inksoft border border-cream/10 hover:border-accent rounded-2xl p-7 transition-all duration-300">
+            <div class="service-icon bg-accent/10">🎨</div>
+            <h3 class="text-[1.08rem] font-semibold mb-2.5">UI/UX Design</h3>
+            <p class="text-[0.88rem] text-cream/60">Merancang antarmuka yang intuitif dan berpusat pada pengguna, dari
+              wireframe hingga desain sistem yang konsisten.</p>
+          </div>
+          <div
+            class="service-card fade-in bg-inksoft border border-cream/10 hover:border-accent rounded-2xl p-7 transition-all duration-300">
+            <div class="service-icon bg-accent/10">🧠</div>
+            <h3 class="text-[1.08rem] font-semibold mb-2.5">Applied AI/ML</h3>
+            <p class="text-[0.88rem] text-cream/60">Menerapkan model machine learning seperti LSTM dan CNN untuk
+              menyelesaikan masalah dunia nyata.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- About Section                 -->
+    <!-- ============================= -->
+    <section class="py-24" id="about">
+      <div class="max-w-[1180px] mx-auto px-8 grid md:grid-cols-[0.85fr_1.15fr] gap-16 items-center">
+
+        <div class="relative fade-in-left about-image-wrapper">
+          <div class="absolute -inset-4 bg-accent/15 rounded-3xl -z-10 transform -rotate-3"></div>
+          <img src="assets/your-photo.jpg" alt="Foto Vaidon Shello Sinambela"
+            class="w-full rounded-2xl shadow-xl object-cover" loading="lazy">
+        </div>
+
+        <div class="fade-in-right">
+          <p class="font-mono text-[0.82rem] text-accent mb-5">// ABOUT ME</p>
+          <h2 class="font-display text-[clamp(1.9rem,3.2vw,2.6rem)] leading-tight mb-6">Merancang dengan<br>Tujuan &amp;
+            Ketelitian</h2>
+          <p class="text-muted max-w-[480px] mb-7 leading-relaxed">Saya Vaidon Shello Sinambela, seorang <b>Software
+              Developer</b>
+            (Mahasiswa Teknik Informatika USU). Saya memiliki spesialisasi dalam membangun ekosistem digital dari hulu
+            ke hilir—mulai dari arsitektur basis data, pengembangan <i>backend</i> yang <i>scalable</i>, antarmuka
+            <i>frontend</i> yang intuitif, hingga implementasi <i>Machine Learning</i> untuk solusi cerdas.
+          </p>
+
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3 text-[0.94rem]">
+              <span
+                class="w-6 h-6 rounded-full bg-accent/10 text-accent flex items-center justify-center text-xs font-bold">✓</span>
+              Pendekatan desain yang berpusat pada pengguna
+            </li>
+            <li class="flex items-center gap-3 text-[0.94rem]">
+              <span
+                class="w-6 h-6 rounded-full bg-accent/10 text-accent flex items-center justify-center text-xs font-bold">✓</span>
+              Kode yang bersih, terstruktur, dan mudah dirawat
+            </li>
+            <li class="flex items-center gap-3 text-[0.94rem]">
+              <span
+                class="w-6 h-6 rounded-full bg-accent/10 text-accent flex items-center justify-center text-xs font-bold">✓</span>
+              Teliti terhadap detail dan konsisten dalam eksekusi
+            </li>
+            <li class="flex items-center gap-3 text-[0.94rem]">
+              <span
+                class="w-6 h-6 rounded-full bg-accent/10 text-accent flex items-center justify-center text-xs font-bold">✓</span>
+              Proaktif dalam mempelajari teknologi terbaru
+            </li>
+          </ul>
+
+          <div class="flex flex-wrap gap-4 items-center">
+            <a href="#contact"
+              class="magnetic-btn inline-flex items-center gap-2 bg-accent hover:bg-accentdark text-white font-semibold text-[0.95rem] px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/30">Hubungi
+              Saya</a>
+            <a href="https://wa.me/6281253577991" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-[0.9rem] text-muted hover:text-accent transition-colors font-medium">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              Available for hire
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- Experience / Timeline Section -->
+    <!-- ============================= -->
+    <section class="py-24 bg-[#EDE8D9]" id="experience">
+      <div class="max-w-[1180px] mx-auto px-8">
+        <div class="grid md:grid-cols-2 gap-16">
+          <!-- Education -->
+          <div class="fade-in">
+            <p class="font-mono text-[0.82rem] text-sage mb-4">// EDUCATION</p>
+            <h2 class="font-display text-[clamp(1.9rem,3vw,2.4rem)] mb-10">Pendidikan</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <p class="font-mono text-[0.75rem] text-accent font-semibold uppercase tracking-wider mb-1">2024 —
+                  Sekarang</p>
+                <h3 class="text-[1.1rem] font-bold mb-1.5">D3 Teknik Informatika</h3>
+                <p class="text-[0.9rem] text-muted">Universitas Sumatera Utara (USU)</p>
+                <p class="text-[0.85rem] text-muted/70 mt-1">Fokus pada Web Development, Data Science, dan Artificial
+                  Intelligence.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <p class="font-mono text-[0.75rem] text-accent font-semibold uppercase tracking-wider mb-1">2021 — 2024
+                </p>
+                <h3 class="text-[1.1rem] font-bold mb-1.5">SMA</h3>
+                <p class="text-[0.9rem] text-muted">Pendidikan menengah atas dengan fokus pada sains dan teknologi.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Work Experience -->
+          <div class="fade-in">
+            <p class="font-mono text-[0.82rem] text-sage mb-4">// EXPERIENCE</p>
+            <h2 class="font-display text-[clamp(1.9rem,3vw,2.4rem)] mb-10">Pengalaman</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <p class="font-mono text-[0.75rem] text-accent font-semibold uppercase tracking-wider mb-1">2026</p>
+                <h3 class="text-[1.1rem] font-bold mb-1.5">Full-Stack Developer (PKL)</h3>
+                <p class="text-[0.9rem] text-muted">LLDikti Wilayah 1</p>
+                <p class="text-[0.85rem] text-muted/70 mt-1">Merancang dan membangun Sistem Manajemen Tunjangan Serdos
+                  dari nol secara solo. Meliputi arsitektur database, backend API, dan frontend.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <p class="font-mono text-[0.75rem] text-accent font-semibold uppercase tracking-wider mb-1">2023 —
+                  Sekarang</p>
+                <h3 class="text-[1.1rem] font-bold mb-1.5">Freelance Developer</h3>
+                <p class="text-[0.9rem] text-muted">Self-Employed</p>
+                <p class="text-[0.85rem] text-muted/70 mt-1">Mengerjakan berbagai proyek web development dan data
+                  science untuk klien individu maupun organisasi.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- Featured Projects Section     -->
+    <!-- ============================= -->
+    <section class="py-24" id="projects">
+      <div class="max-w-[1180px] mx-auto px-8">
+        <p class="font-mono text-[0.82rem] text-sage mb-4 fade-in">// FEATURED WORK</p>
+        <div class="flex flex-wrap justify-between items-center gap-5 mb-11 fade-in">
+          <h2 class="font-display text-[clamp(2rem,3.4vw,2.7rem)]">Proyek Pilihan</h2>
+          <div class="flex flex-wrap gap-2.5">
+            <button class="tab active" data-filter="all">Semua</button>
+            <button class="tab" data-filter="web">Web Dev</button>
+            <button class="tab" data-filter="data">Data Science</button>
+            <button class="tab" data-filter="uiux">UI/UX</button>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-9" id="projectGrid">
+
+          <!-- Project 1: Serdos LLDikti (Favorite) -->
+          <article
+            class="project-card flex flex-col fade-in bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-black/5 hover:border-accent/40 transition-all duration-300"
+            data-cat="web">
+            <div class="project-thumb p-0 overflow-hidden border-none relative group mb-4 bg-[#f9f8f4]">
+              <img src="assets/Project/Serdos-lldikti.png" alt="Sistem Manajemen Tunjangan Serdos LLDikti"
+                class="w-full h-auto transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <div
+                class="absolute top-3 right-3 bg-accent text-white text-[0.7rem] font-bold px-3 py-1 rounded-full shadow-lg flex items-center gap-1">
+                <span>⭐</span> FAVORITE
+              </div>
+            </div>
+            <div class="flex flex-col flex-grow">
+              <h3 class="text-[1.25rem] font-bold mb-2 text-ink">Sistem Manajemen Tunjangan Serdos LLDikti</h3>
+              <p
+                class="project-category font-mono text-[0.75rem] text-accent font-semibold uppercase tracking-wider mb-3">
+                Web
+                Development • Solo Project</p>
+              <p class="project-description text-[0.92rem] text-muted leading-relaxed flex-grow">
+                Proyek <i>Favorite</i> berskala institusi yang saya kembangkan sepenuhnya dari nol (<i>Solo Full-Stack
+                  Developer</i>) saat menjalani Praktek Kerja Lapangan untuk <b>LLDikti Wilayah 1</b>. Sistem manajemen
+                data serdos ini dirancang khusus untuk mengoptimalkan kinerja <b>Divisi Keuangan</b>. Peran saya
+                mencakup seluruh siklus pengembangan—mulai dari perancangan arsitektur basis data, pengembangan API
+                <i>backend</i>, hingga desain antarmuka <i>frontend</i> yang sangat aman dan intuitif.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span class="project-tech-tag">Laravel</span>
+                <span class="project-tech-tag">PHP</span>
+                <span class="project-tech-tag">MySQL</span>
+                <span class="project-tech-tag">Tailwind</span>
+                <span class="project-tech-tag">REST API</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Klasifikasi Citra CNN (Data Science) -->
+          <article
+            class="project-card flex flex-col fade-in bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-black/5 hover:border-accent/40 transition-all duration-300"
+            data-cat="data">
+            <div class="project-thumb p-0 overflow-hidden border-none relative group mb-4 bg-[#f9f8f4]">
+              <img src="assets/Project/data.png" alt="Optimasi Model Klasifikasi Citra Hewan"
+                class="w-full h-auto transition-transform duration-700 group-hover:scale-105" loading="lazy">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <h3 class="text-[1.25rem] font-bold mb-2 text-ink">AI Vision: Optimasi Klasifikasi Citra Hewan</h3>
+              <p
+                class="project-category font-mono text-[0.75rem] text-accent font-semibold uppercase tracking-wider mb-3">
+                Data Science •
+                Machine Learning</p>
+              <p class="project-description text-[0.92rem] text-muted leading-relaxed flex-grow">
+                Aplikasi web AI cerdas untuk klasifikasi hewan (Anjing, Kucing, Liar) yang sukses menaklukkan
+                <b>Overfitting Ekstrem</b>. Saya merombak total arsitektur dengan taktik anti-overfitting tingkat
+                lanjut: <i>L2 Regularization</i>, <i>Dropout</i> (50% & 40%), <i>Batch Norm</i>, hingga augmentasi data
+                agresif. Puncak inovasinya pada integrasi <b>Explainable AI (Grad-CAM)</b> untuk transparansi keputusan
+                AI.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span class="project-tech-tag">Python</span>
+                <span class="project-tech-tag">TensorFlow</span>
+                <span class="project-tech-tag">CNN</span>
+                <span class="project-tech-tag">Grad-CAM</span>
+                <span class="project-tech-tag">Streamlit</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Aplikasi Mobile Kesehatan -->
+          <article
+            class="project-card flex flex-col fade-in bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-black/5 hover:border-accent/40 transition-all duration-300"
+            data-cat="web">
+            <div class="project-thumb p-0 overflow-hidden border-none relative group mb-4 bg-[#f9f8f4]">
+              <img src="assets/Project/aksi-kita.png" alt="Aplikasi Aksi Kita"
+                class="w-full h-auto transition-transform duration-700 group-hover:scale-105" loading="lazy">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <h3 class="text-[1.25rem] font-bold mb-2 text-ink">Web App "Aksi Kita"</h3>
+              <p
+                class="project-category font-mono text-[0.75rem] text-accent font-semibold uppercase tracking-wider mb-3">
+                Web
+                Development • Team Project</p>
+              <p class="project-description text-[0.92rem] text-muted leading-relaxed flex-grow">
+                Sebagai salah satu <i>Core Developer</i> dalam tim, saya memegang peran krusial dalam perancangan dan
+                pengembangan aplikasi ini. Tanggung jawab saya berfokus pada pengembangan sistem, mulai dari pembuatan
+                struktur <b>Basis Data (Database)</b>, membangun fitur inti secara komprehensif, hingga proses
+                <i>debugging</i> tingkat lanjut.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span class="project-tech-tag">JavaScript</span>
+                <span class="project-tech-tag">Node.js</span>
+                <span class="project-tech-tag">PostgreSQL</span>
+                <span class="project-tech-tag">Express</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: UI/UX Serdos -->
+          <article
+            class="project-card flex flex-col fade-in bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-black/5 hover:border-accent/40 transition-all duration-300"
+            data-cat="uiux">
+            <div class="project-thumb p-0 overflow-hidden border-none relative group mb-4 bg-[#f9f8f4]">
+              <img src="assets/Project/UI-UX-design.png" alt="Desain UI/UX Sistem Manajemen Serdos"
+                class="w-full h-auto transition-transform duration-700 group-hover:scale-105" loading="lazy">
+            </div>
+            <div class="flex flex-col flex-grow">
+              <h3 class="text-[1.25rem] font-bold mb-2 text-ink">UI/UX Design: Sistem Serdos LLDikti</h3>
+              <p
+                class="project-category font-mono text-[0.75rem] text-accent font-semibold uppercase tracking-wider mb-3">
+                UI/UX Design •
+                Prototyping</p>
+              <p class="project-description text-[0.92rem] text-muted leading-relaxed flex-grow">
+                Desain antarmuka (UI/UX) untuk Sistem Manajemen Serdos LLDikti Wilayah 1 yang saya rancang secara
+                mendetail sebelum tahap <i>development</i> dimulai menggunakan <i>software</i> Figma. Fokus utamanya
+                adalah merangkai <i>user journey</i> yang intuitif dan logis bagi staf Divisi Keuangan.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span class="project-tech-tag">Figma</span>
+                <span class="project-tech-tag">Wireframing</span>
+                <span class="project-tech-tag">Prototyping</span>
+                <span class="project-tech-tag">Design System</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="text-center mt-12 fade-in">
+          <a href="https://github.com/selosinambela" target="_blank" rel="noopener noreferrer"
+            class="magnetic-btn inline-flex items-center gap-2 border border-black/15 hover:border-[#22221D] font-semibold text-[0.95rem] px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5">
+            Lihat di GitHub
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+              <path
+                d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55v-2.1c-3.16.69-3.83-1.36-3.83-1.36-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.24 3.31.95.1-.73.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55 4.5-1.5 7.76-5.76 7.76-10.78C23.25 5.48 18.27.5 12 .5Z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- Skills Section (Enhanced)     -->
+    <!-- ============================= -->
+    <section class="py-24 bg-[#EDE8D9] overflow-hidden" id="skills">
+      <div class="max-w-[1180px] mx-auto px-8">
+        <p class="font-mono text-[0.82rem] text-sage mb-4 fade-in">// TECH STACK</p>
+        <h2 class="font-display text-[clamp(1.9rem,3vw,2.4rem)] mb-12 fade-in">Tools &amp; Teknologi</h2>
+
+        <!-- Skill Categories -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+          <div class="skill-category fade-in">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="text-xl">🌐</span>
+              <h3 class="font-display font-semibold text-[1.05rem]">Frontend</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill">HTML5</span>
+              <span class="skill-pill">CSS3</span>
+              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">React</span>
+              <span class="skill-pill">Vue.js</span>
+              <span class="skill-pill">Tailwind CSS</span>
+              <span class="skill-pill">Bootstrap</span>
+            </div>
+          </div>
+          <div class="skill-category fade-in">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="text-xl">⚙️</span>
+              <h3 class="font-display font-semibold text-[1.05rem]">Backend</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill">Laravel</span>
+              <span class="skill-pill">PHP</span>
+              <span class="skill-pill">Node.js</span>
+              <span class="skill-pill">Express</span>
+              <span class="skill-pill">REST API</span>
+              <span class="skill-pill">MySQL</span>
+              <span class="skill-pill">PostgreSQL</span>
+              <span class="skill-pill">MongoDB</span>
+            </div>
+          </div>
+          <div class="skill-category fade-in">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="text-xl">🤖</span>
+              <h3 class="font-display font-semibold text-[1.05rem]">AI / Data Science</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">TensorFlow</span>
+              <span class="skill-pill">Pandas</span>
+              <span class="skill-pill">NumPy</span>
+              <span class="skill-pill">Scikit-learn</span>
+              <span class="skill-pill">CNN</span>
+              <span class="skill-pill">LSTM</span>
+            </div>
+          </div>
+          <div class="skill-category fade-in">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="text-xl">🎨</span>
+              <h3 class="font-display font-semibold text-[1.05rem]">Design</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill">Figma</span>
+              <span class="skill-pill">UI/UX</span>
+              <span class="skill-pill">Wireframing</span>
+              <span class="skill-pill">Prototyping</span>
+            </div>
+          </div>
+          <div class="skill-category fade-in">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="text-xl">🔧</span>
+              <h3 class="font-display font-semibold text-[1.05rem]">DevOps & Tools</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill">Git</span>
+              <span class="skill-pill">GitHub</span>
+              <span class="skill-pill">Docker</span>
+              <span class="skill-pill">VS Code</span>
+              <span class="skill-pill">Postman</span>
+            </div>
+          </div>
+          <div class="skill-category fade-in">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="text-xl">📚</span>
+              <h3 class="font-display font-semibold text-[1.05rem]">Currently Learning</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill">TypeScript</span>
+              <span class="skill-pill">Next.js</span>
+              <span class="skill-pill">Cloud (AWS)</span>
+              <span class="skill-pill">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marquee -->
+        <div class="border-y border-black/10 py-5 overflow-hidden fade-in">
+          <div class="marquee-track">
+            <span>Laravel</span><span>PHP</span><span>JavaScript</span><span>React</span><span>Vue</span>
+            <span>Node.js</span><span>Express</span><span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span>
+            <span>Python</span><span>TensorFlow</span><span>Tailwind CSS</span><span>Bootstrap</span>
+            <span>Git</span><span>Docker</span><span>REST API</span><span>Figma</span>
+            <span>Laravel</span><span>PHP</span><span>JavaScript</span><span>React</span><span>Vue</span>
+            <span>Node.js</span><span>Express</span><span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span>
+            <span>Python</span><span>TensorFlow</span><span>Tailwind CSS</span><span>Bootstrap</span>
+            <span>Git</span><span>Docker</span><span>REST API</span><span>Figma</span>
+          </div>
+        </div>
+        <div class="border-b border-black/10 py-5 overflow-hidden fade-in">
+          <div class="marquee-track-reverse">
+            <span>TypeScript</span><span>Next.js</span><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span>
+            <span>CNN</span><span>LSTM</span><span>Postman</span><span>VS Code</span><span>Streamlit</span>
+            <span>Matplotlib</span><span>Seaborn</span><span>Keras</span><span>GitHub Actions</span><span>AWS</span>
+            <span>TypeScript</span><span>Next.js</span><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span>
+            <span>CNN</span><span>LSTM</span><span>Postman</span><span>VS Code</span><span>Streamlit</span>
+            <span>Matplotlib</span><span>Seaborn</span><span>Keras</span><span>GitHub Actions</span><span>AWS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- Contact / CTA Section         -->
+    <!-- ============================= -->
+    <section class="bg-ink text-cream py-28 relative overflow-hidden" id="contact">
+      <!-- Decorative elements -->
+      <div
+        class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-accent/5 -translate-y-1/2 translate-x-1/3 pointer-events-none">
+      </div>
+      <div
+        class="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-accent/5 translate-y-1/2 -translate-x-1/3 pointer-events-none">
+      </div>
+
+      <div class="max-w-[1180px] mx-auto px-8 relative z-10">
+        <div class="max-w-[640px] fade-in">
+          <p class="font-mono text-[0.82rem] text-accent mb-5">// GET IN TOUCH</p>
+          <h2 class="font-display text-[clamp(2.1rem,4vw,3rem)] leading-tight mb-5">Mari Membangun<br>Sesuatu Bersama
+          </h2>
+          <p class="text-cream/65 mb-10 leading-relaxed">Terbuka untuk kolaborasi proyek, magang, maupun sekadar
+            berdiskusi seputar
+            teknologi. Hubungi saya melalui tombol WhatsApp atau Email di bawah.</p>
+
+          <div class="mt-4 flex flex-wrap gap-4">
+            <a href="https://wa.me/6281253577991?text=Halo%20Vaidon,%20saya%20tertarik%20untuk%20berkolaborasi."
+              target="_blank" rel="noopener noreferrer"
+              class="magnetic-btn inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold text-[1rem] px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#25D366]/30">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+              </svg>
+              Chat via WhatsApp
+            </a>
+
+            <a href="mailto:chelloaja47@gmail.com"
+              class="magnetic-btn inline-flex items-center gap-3 bg-accent hover:bg-accentdark text-white font-semibold text-[1rem] px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/30">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                <path
+                  d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+              </svg>
+              Kirim Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================= -->
+  <!-- Footer Section                -->
+  <!-- ============================= -->
+  <footer class="bg-ink text-cream/70 py-8 border-t border-cream/10">
+    <div class="max-w-[1180px] mx-auto px-8 flex flex-wrap items-center justify-between gap-5 text-[0.85rem]">
+      <a href="#top" class="font-mono font-semibold text-cream">
+        <span class="text-accent">&lt;</span>vaidon.dev<span class="text-accent">/&gt;</span>
+      </a>
+      <p>&copy; 2026 Vaidon Shello Sinambela. Dibangun dengan HTML, Tailwind &amp; JavaScript.</p>
+
+      <!-- Social Links (Footer) -->
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/selosinambela" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+          class="social-icon-footer">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-[18px] h-[18px]">
+            <path
+              d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55v-2.1c-3.16.69-3.83-1.36-3.83-1.36-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.24 3.31.95.1-.73.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.19-1.47 3.15-1.16 3.15-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.35-2.65 5.31-5.18 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55 4.5-1.5 7.76-5.76 7.76-10.78C23.25 5.48 18.27.5 12 .5Z" />
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/vaidonshellos" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+          class="social-icon-footer">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-[18px] h-[18px]">
+            <path
+              d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z" />
+          </svg>
+        </a>
+        <a href="https://instagram.com/selosinambela" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+          class="social-icon-footer">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-[18px] h-[18px]">
+            <path
+              d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0-2.16C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.56-.79.31-1.46.72-2.13 1.38A5.88 5.88 0 0 0 .63 3.14C.33 3.9.12 4.77.07 6.05.01 7.33 0 7.74 0 11s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.66.66 1.34 1.07 2.13 1.38.76.3 1.63.5 2.91.56C8.33 22.99 8.74 23 12 23s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.66 1.07-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84Zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Project Modal -->
+  <div id="projectModal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">✕</button>
+      <img id="modalImage" src="" alt="" class="modal-image">
+      <div class="modal-body">
+        <h3 id="modalTitle" class="font-display text-[1.5rem] font-bold mb-2"></h3>
+        <p id="modalCategory" class="font-mono text-[0.78rem] text-accent font-semibold uppercase tracking-wider mb-4">
+        </p>
+        <div id="modalDescription" class="text-[0.94rem] text-muted leading-relaxed mb-5"></div>
+        <div id="modalTechs" class="flex flex-wrap gap-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,857 @@
+/* =====================================================
+   Custom CSS — Professional Portfolio
+   Premium animations, micro-interactions, and modern
+   design patterns for a standout developer portfolio.
+===================================================== */
+
+html { scroll-behavior: smooth; }
+
+/* =====================================================
+   CSS Custom Properties (Design Tokens)
+===================================================== */
+:root {
+  --cream: #F4F0E6;
+  --ink: #1C241E;
+  --inksoft: #2A342C;
+  --accent: #C1622E;
+  --accentdark: #A6511F;
+  --accent-glow: rgba(193, 98, 46, 0.35);
+  --sage: #8A9179;
+  --muted: #6E6B60;
+  --transition-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition-duration: 0.01ms !important; }
+}
+
+/* =====================================================
+   Preloader / Loading Screen
+===================================================== */
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.preloader-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4rem;
+  color: var(--cream);
+  font-weight: 600;
+  margin-bottom: 32px;
+  animation: pulse-glow 1.6s ease-in-out infinite;
+}
+.preloader-logo .accent { color: var(--accent); }
+.preloader-bar-wrapper {
+  width: 180px;
+  height: 3px;
+  background: rgba(244, 240, 230, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.preloader-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), #E4884A);
+  border-radius: 10px;
+  animation: preloader-fill 1.8s var(--transition-smooth) forwards;
+}
+@keyframes preloader-fill {
+  0% { width: 0%; }
+  60% { width: 80%; }
+  100% { width: 100%; }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; text-shadow: 0 0 0px transparent; }
+  50% { opacity: 0.7; text-shadow: 0 0 20px var(--accent-glow); }
+}
+
+/* =====================================================
+   Scroll Progress Bar
+===================================================== */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), #E4884A, var(--accent));
+  background-size: 200% 100%;
+  z-index: 10000;
+  transition: width 0.1s linear;
+  animation: gradient-shift 3s ease infinite;
+}
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* =====================================================
+   Nav links with animated underline
+===================================================== */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent), #E4884A);
+  border-radius: 2px;
+  transition: width 0.3s var(--transition-smooth);
+}
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+.nav-link.active { color: var(--accent); }
+
+/* =====================================================
+   Scroll Fade-In Animations (Enhanced)
+===================================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Staggered children animation */
+.fade-in.visible:nth-child(1) { transition-delay: 0s; }
+.fade-in.visible:nth-child(2) { transition-delay: 0.1s; }
+.fade-in.visible:nth-child(3) { transition-delay: 0.2s; }
+.fade-in.visible:nth-child(4) { transition-delay: 0.3s; }
+
+/* Slide from left/right */
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+}
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+}
+.fade-in-left.visible,
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale up animation */
+.fade-in-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+}
+.fade-in-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* =====================================================
+   Floating terminal card (Enhanced)
+===================================================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(0.5deg); }
+  66% { transform: translateY(-6px) rotate(-0.3deg); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+/* =====================================================
+   Typing Cursor Animation
+===================================================== */
+.typed-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--accent);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink-cursor 0.75s step-end infinite;
+}
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* =====================================================
+   Counter Animation
+===================================================== */
+.counter-value {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.counter-value.counting {
+  animation: counter-pop 0.4s var(--transition-bounce);
+}
+@keyframes counter-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* =====================================================
+   Social Icons
+===================================================== */
+.social-icon {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #22221D;
+  transition: all 0.35s var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+.social-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.35s var(--transition-smooth);
+}
+.social-icon:hover::before {
+  transform: scale(1);
+}
+.social-icon:hover {
+  border-color: var(--accent);
+  color: #fff;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px var(--accent-glow);
+}
+.social-icon svg { position: relative; z-index: 1; }
+
+.social-icon-footer {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(244, 240, 230, 0.15);
+  color: rgba(244, 240, 230, 0.7);
+  transition: all 0.35s var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+.social-icon-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.35s var(--transition-smooth);
+}
+.social-icon-footer:hover::before {
+  transform: scale(1);
+}
+.social-icon-footer:hover {
+  border-color: var(--accent);
+  color: #fff;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px var(--accent-glow);
+}
+.social-icon-footer svg { position: relative; z-index: 1; }
+
+/* =====================================================
+   Project Filter Tabs
+===================================================== */
+.tab {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+.tab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  border-radius: 50px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s var(--transition-smooth);
+}
+.tab:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.tab:hover {
+  border-color: var(--ink);
+  color: var(--cream);
+}
+.tab span { position: relative; z-index: 1; }
+.tab.active {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+  box-shadow: 0 4px 12px rgba(28, 36, 30, 0.2);
+}
+
+/* =====================================================
+   Project Cards (Enhanced with Tilt)
+===================================================== */
+.project-thumb {
+  border-radius: 14px;
+  margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  transition: transform 0.5s var(--transition-smooth), border-color 0.3s ease;
+}
+.project-card {
+  transition: all 0.4s var(--transition-smooth);
+  will-change: transform;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+.project-card:hover .project-thumb {
+  transform: scale(1.02);
+  border-color: var(--accent);
+}
+
+/* Project card tech tags */
+.project-tech-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(193, 98, 46, 0.08);
+  color: var(--accent);
+  border: 1px solid rgba(193, 98, 46, 0.15);
+  transition: all 0.25s ease;
+}
+.project-tech-tag:hover {
+  background: rgba(193, 98, 46, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Project card links */
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: all 0.25s ease;
+  padding: 6px 0;
+}
+.project-link:hover {
+  color: var(--accentdark);
+  gap: 10px;
+}
+
+/* =====================================================
+   Marquee (Enhanced)
+===================================================== */
+.marquee-track {
+  display: flex;
+  gap: 50px;
+  width: max-content;
+  animation: scroll-left 28s linear infinite;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+.marquee-track span {
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: default;
+  white-space: nowrap;
+}
+.marquee-track span:hover {
+  color: var(--accent);
+  transform: scale(1.1);
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Second marquee row (reverse) */
+.marquee-track-reverse {
+  display: flex;
+  gap: 50px;
+  width: max-content;
+  animation: scroll-right 24s linear infinite;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+.marquee-track-reverse span {
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: default;
+  white-space: nowrap;
+}
+.marquee-track-reverse span:hover {
+  color: var(--accent);
+  transform: scale(1.1);
+}
+.marquee-track-reverse:hover {
+  animation-play-state: paused;
+}
+@keyframes scroll-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+/* =====================================================
+   Skill Category Cards
+===================================================== */
+.skill-category {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.4s var(--transition-smooth);
+}
+.skill-category:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+  border-color: rgba(193, 98, 46, 0.2);
+}
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--muted);
+  transition: all 0.3s ease;
+}
+.skill-pill:hover {
+  background: rgba(193, 98, 46, 0.08);
+  border-color: rgba(193, 98, 46, 0.2);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* =====================================================
+   Experience Timeline
+===================================================== */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent), rgba(193, 98, 46, 0.15));
+  border-radius: 2px;
+}
+.timeline-item {
+  position: relative;
+  padding-bottom: 32px;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-dot {
+  position: absolute;
+  left: -28px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 0 4px rgba(193, 98, 46, 0.12);
+  transition: all 0.3s ease;
+}
+.timeline-item:hover .timeline-dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 6px rgba(193, 98, 46, 0.2);
+  transform: scale(1.2);
+}
+
+/* =====================================================
+   Contact Form Inputs
+===================================================== */
+.form-input {
+  background: var(--inksoft);
+  border: 1px solid rgba(244, 240, 230, 0.12);
+  border-radius: 12px;
+  padding: 16px 18px;
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.94rem;
+  width: 100%;
+  transition: all 0.35s var(--transition-smooth);
+}
+.form-input::placeholder { color: rgba(244, 240, 230, 0.35); }
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+/* =====================================================
+   Back to Top Button
+===================================================== */
+#backToTop {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.4s var(--transition-bounce);
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+#backToTop.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+#backToTop:hover {
+  background: var(--accentdark);
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 8px 30px var(--accent-glow);
+}
+#backToTop svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+#backToTop:hover svg {
+  transform: translateY(-2px);
+}
+
+/* =====================================================
+   Project Modal / Lightbox
+===================================================== */
+#projectModal {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+#projectModal.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 36, 30, 0.85);
+  backdrop-filter: blur(8px);
+}
+.modal-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  width: calc(100% - 40px);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 0;
+  transform: scale(0.9) translateY(30px);
+  transition: transform 0.4s var(--transition-bounce);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+}
+#projectModal.active .modal-content {
+  transform: scale(1) translateY(0);
+}
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--ink);
+  transition: all 0.25s ease;
+  z-index: 2;
+}
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: rotate(90deg);
+}
+.modal-image {
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  object-fit: cover;
+  max-height: 400px;
+}
+.modal-body {
+  padding: 28px 32px 32px;
+}
+
+/* Modal scrollbar */
+.modal-content::-webkit-scrollbar { width: 6px; }
+.modal-content::-webkit-scrollbar-track { background: transparent; }
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+/* =====================================================
+   Service Card Enhancements
+===================================================== */
+.service-card {
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  transform: scaleX(0);
+  transition: transform 0.5s var(--transition-smooth);
+}
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+.service-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  transition: all 0.4s var(--transition-smooth);
+}
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* =====================================================
+   Testimonial / Quote Section
+===================================================== */
+.testimonial-card {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.4s var(--transition-smooth);
+}
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 4rem;
+  color: rgba(193, 98, 46, 0.12);
+  line-height: 1;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+}
+
+/* =====================================================
+   Hamburger Animation
+===================================================== */
+#navToggle span {
+  transition: all 0.35s var(--transition-smooth);
+  transform-origin: center;
+}
+#navToggle.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+#navToggle.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+#navToggle.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile nav panel animation */
+#mobileNav {
+  transition: all 0.4s var(--transition-smooth);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+#mobileNav.open {
+  max-height: 400px;
+  opacity: 1;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+/* =====================================================
+   Glow Effects & Decorative Elements
+===================================================== */
+.glow-accent {
+  box-shadow: 0 0 60px var(--accent-glow);
+}
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent), #E4884A, var(--accentdark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.glass-effect {
+  background: rgba(244, 240, 230, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Floating particles */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.1;
+  pointer-events: none;
+  animation: float-particle linear infinite;
+}
+@keyframes float-particle {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.15; }
+  90% { opacity: 0.15; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* =====================================================
+   Section Dividers
+===================================================== */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08), transparent);
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+/* =====================================================
+   About Section Image
+===================================================== */
+.about-image-wrapper {
+  position: relative;
+}
+.about-image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 20px;
+  border: 2px dashed rgba(193, 98, 46, 0.2);
+  transform: rotate(-3deg);
+  transition: all 0.5s ease;
+}
+.about-image-wrapper:hover::after {
+  transform: rotate(0deg);
+  border-color: rgba(193, 98, 46, 0.4);
+}
+
+/* =====================================================
+   Accessible Focus States (Keyboard Nav)
+===================================================== */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* =====================================================
+   Selection Styling
+===================================================== */
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* =====================================================
+   Smooth Scrollbar
+===================================================== */
+body::-webkit-scrollbar { width: 8px; }
+body::-webkit-scrollbar-track { background: var(--cream); }
+body::-webkit-scrollbar-thumb {
+  background: var(--sage);
+  border-radius: 4px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* =====================================================
+   Responsive Adjustments
+===================================================== */
+@media (max-width: 768px) {
+  #backToTop {
+    bottom: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+  }
+  .modal-body { padding: 20px 24px 28px; }
+  .timeline { padding-left: 28px; }
+}
