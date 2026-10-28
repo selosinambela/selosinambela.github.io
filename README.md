@@ -51,7 +51,7 @@ start index.html
 ## 📬 Contact & Connect
 
 - **Portfolio**: [selosinambela.github.io](https://selosinambela.github.io)
-- **LinkedIn**: [Vaidon Shello Sinambela](https://www.linkedin.com/in/vaidon-shello-sinambela/)
+- **LinkedIn**: [Vaidon Shello Sinambela](https://www.linkedin.com/in/vaidonshellos/)
 - **GitHub**: [@selosinambela](https://github.com/selosinambela)
 - **Instagram**: [@selosinambela](https://www.instagram.com/selosinambela/)
 
